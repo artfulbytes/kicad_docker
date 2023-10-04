@@ -12,7 +12,7 @@ docker build \
     --build-arg GID=`id -g` \
     --build-arg USER_NAME=`id -nu` \
     --build-arg HOME=$HOME \
-    -t kicad7 .
+    -t kicad5 .
 ```
 
 # Run it
@@ -20,10 +20,10 @@ The following command runs the docker container by forwarding the host's graphic
 [integrated intel graphics](https://www.reddit.com/r/docker/comments/10dsn6p/how_do_you_pass_amd_gpus_and_intel_gpus_through/) and the host's home folder.
 
 ``` bash
-docker run --device /dev/dri --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME:$HOME kicad7"
+docker run --device /dev/dri --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME:$HOME kicad5"
 ```
 
-A tip is to add an alias (e.g. alias kicad7=...) for this command in your bash config.
+A tip is to add an alias (e.g. alias kicad5=...) for this command in your bash config.
 
 # Note
 * In later KiCad versions the standard KiCad library is installed along with KiCad, so it's available under
